@@ -1,4 +1,5 @@
 # OST-Python: Open Summarization Toolbox
+> A C++ implementation of OST can be found [here](https://github.com/leanbalma/OST).
 
 Open Summarization Toolbox (OST) is an open evaluation framework for video summarization. OST is compatible with existing datasets and published results.
 OST consists of:
@@ -7,7 +8,6 @@ OST consists of:
 * A set of [Tools](./tools)
 * A dataset including [User Summaries](./user_summaries) and [Published Results](./published_results) in CSV format.
 
-A C++ implementation of OST can be found [here](https://github.com/leanbalma/OST).
 
 ## Contributors
 
