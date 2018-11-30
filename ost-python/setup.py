@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="ost-python",
-    version="0.0.6",
+    version="0.0.7",
     autaor="UTN-FRBB",
     author_email="balmacedalm@gmail.com",
     description="Evaluation framework for video summarizations",
