@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="ost-python",
-    version="0.0.7",
+    version="0.0.9",
     autaor="UTN-FRBB",
     author_email="balmacedalm@gmail.com",
     description="Evaluation framework for video summarizations",
@@ -13,6 +13,9 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/leanbalma/ost-python",
     packages=setuptools.find_packages(),
+    entry_points = {
+        'console_scripts': ['ost-python=ost.evaluator_cli:main'],
+    },
     install_requires=[
         'opencv-python',
         'h5py',
