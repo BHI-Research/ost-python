@@ -17,8 +17,8 @@ You can edit the following parameters:
 * Distance (`--distance`): maximum distance (in frames number) between the two keyframes that will be compared. Recommended value: 120.
 * Reference path (`--automatic_summarization`): path to the method keyframes.
 * User path (`--users_summarization`): path to the user keyframes.
-* Reference path H5 (`--automatic_summary_path`): Automatic summary path in the h5 file.
-* User path H5 (`--user_summary_path`): User summary path in the h5 file.
+* Reference path H5 (`--automatic_summary_path`): automatic summary path in the h5 file.
+* User path H5 (`--user_summary_path`): user summary path in the h5 file.
 * Video path (`--original_video`): path to the original video.
 
 Example:
