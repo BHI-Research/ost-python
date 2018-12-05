@@ -5,7 +5,7 @@ import os
 import sys
 import cv2
 
-from metrics import prepare_folders, computeCUS, computeBHI
+from ost.metrics import prepare_folders, computeCUS, computeBHI
 
 parser = argparse.ArgumentParser("Evaluator for OST")
 parser.add_argument('-a', '--automatic_summarization', type=str, required=True)
@@ -19,13 +19,12 @@ parser.add_argument('--user_summary_path',
 parser.add_argument('--automatic_summary_path',
                     type=str, help="Automatic summary path in the h5 file (ex video_11/machine_summary)")
 
-args = parser.parse_args()
 
 
 '''useFolders
 Loads the summarizations from folders.
 '''
-def useFolders():
+def useFolders(args):
     cap = cv2.VideoCapture(args.original_video)
     videoLength = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
@@ -51,7 +50,7 @@ def useFolders():
 '''useH5
 Loads the summarizations from H5 files.
 '''
-def useH5():
+def useH5(args):
     if args.automatic_summary_path is None or args.user_summary_path is None:
         sys.exit("Error: Summaries paths in H5 files were not specified.")
 
@@ -89,7 +88,8 @@ def useH5():
     return f1, kappa
 
 
-if __name__ == '__main__':
+def main():
+    args = parser.parse_args()
     print('Evaluating summarization...')
     print('Method:', args.method)
     print('Epsilon', args.epsilon)
@@ -97,9 +97,13 @@ if __name__ == '__main__':
         print('Distance', args.distance)
 
     if os.path.isdir(args.users_summarization) and os.path.isdir(args.automatic_summarization):
-        f1, kappa = useFolders()
+        f1, kappa = useFolders(args)
     else:
-        f1, kappa = useH5()
+        f1, kappa = useH5(args)
 
     print('Average F1:', round(f1, 2))
     print('Average Kappa:', round(kappa, 2))
+
+
+if __name__ == '__main__':
+    main()

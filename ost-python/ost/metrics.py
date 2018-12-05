@@ -103,7 +103,7 @@ def computeMetrics(userFolder, predictionImages, refPath, epsilon, videoFrames, 
 
     usrImages = sorted(glob.glob(refPath + '/' + userFolder + '/*.*'))
 
-    totalFramesReference = len(predictionImages)
+    totalFramesMeasure = len(predictionImages)
     totalFramesUser = len(usrImages)
     usrImagesCopy = list(usrImages)
     refImagesCopy = list(predictionImages)
@@ -147,14 +147,14 @@ def computeMetrics(userFolder, predictionImages, refPath, epsilon, videoFrames, 
                 break
 
     totalMatched = len(matched)
-    precision = 1.0 if totalFramesReference == 0 else totalMatched / totalFramesReference
+    precision = 1.0 if totalFramesMeasure == 0 else totalMatched / totalFramesMeasure
     recall = 1.0 if totalFramesUser == 0 else totalMatched / totalFramesUser
     f1 = 0 if precision == 0 and recall == 0 else (2 * precision * recall) / (precision + recall)
 
     # Kappa
     nYmYr = totalMatched
-    nNmYr = totalFramesReference - totalMatched
-    nYmNr = totalFramesReference - totalMatched
+    nNmYr = totalFramesUser - totalMatched
+    nYmNr = totalFramesMeasure - totalMatched
     nNmNr = videoFrames - nYmYr - nNmYr - nYmNr
 
     pO = (nYmYr + nNmNr) / videoFrames
