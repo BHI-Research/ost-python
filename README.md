@@ -10,16 +10,40 @@ pip3 install ost-python
 ```
 
 ## How to use it
-You can edit the following parameters:
 
-* Method (`--method`): besides running our evaluation method, you can also run CUS specifing `cus` instead of `bhi` for this parameter.
-* Epsilon (`--epsilon`): value that determines the maximum distance between the histograms of two matched keyframes. Recommended value: 0.4.
-* Distance (`--distance`): maximum distance (in frames number) between the two keyframes that will be compared. Recommended value: 120.
-* Reference path (`--automatic_summarization`): path to the method keyframes.
-* User path (`--users_summarization`): path to the user keyframes.
+### CLI
+
+`ost-python` provides a CLI tool that you can use to get your metric using your terminal.
+
+You can specify the following parameters:
+
+* Method (`--method`/`-m`): besides running our evaluation method (`bhi`), you can also run [CUS](https://sites.google.com/site/vsummsite/download) specifing `cus` instead of `bhi` for this parameter. Default Value: `bhi`.
+* Epsilon (`--epsilon`/`-e`): value that determines the maximum distance between the histograms of two matched keyframes. Default value: `0.4`
+* Distance (`--distance`/`-d`): maximum distance (in frames number) between the two keyframes that will be compared. Default value: `120`.
+* Reference path (`--automatic_summarization`/`-a`): path to the method keyframes.
+* User path (`--users_summarization`/`-u`): path to the user keyframes.
 * Reference path H5 (`--automatic_summary_path`): automatic summary path in the h5 file.
 * User path H5 (`--user_summary_path`): user summary path in the h5 file.
-* Video path (`--original_video`): path to the original video.
+* Video path (`--original_video`/`-v`): path to the original video.
+
+Example:
+
+```
+$ ost-python -u dataset_users.h5 -a result.h5 -v videos/video_11.mp4 --user_summary_path video_11/user_summary --automatic_summary_path video_11/machine_summary
+```
+
+### Python package API
+
+Import the methods you need from the package:
+
+`from ost import prepare_folders, computeCUS, computeBHI`
+
+#### `prepare_folders(uSummary, aSummary, video, aSummaryFramesPath, uSummaryFramesPath)`
+
+#### `computeCUS(epsilon, videoFrames, refPath, predictionPath)`
+
+#### `computeBHI(epsilon, videoFrames, distance, refPath, predictionPath)`
+
 
 Example:
 
@@ -48,6 +72,8 @@ f1, kappa = computeBHI(
 print('F1:', f1)
 print('Kappa:', kappa)
 ```
+
+## Supported platforms
 
 
 ## Contributors
