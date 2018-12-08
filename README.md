@@ -10,6 +10,17 @@ pip3 install ost-python
 ```
 
 ## How to use it
+You can edit the following parameters:
+
+* Method (`--method`): besides running our evaluation method, you can also run CUS specifing `cus` instead of `bhi` for this parameter.
+* Epsilon (`--epsilon`): value that determines the maximum distance between the histograms of two matched keyframes. Recommended value: 0.4.
+* Distance (`--distance`): maximum distance (in frames number) between the two keyframes that will be compared. Recommended value: 120.
+* Reference path (`--automatic_summarization`): path to the method keyframes.
+* User path (`--users_summarization`): path to the user keyframes.
+* Reference path H5 (`--automatic_summary_path`): automatic summary path in the h5 file.
+* User path H5 (`--user_summary_path`): user summary path in the h5 file.
+* Video path (`--original_video`): path to the original video.
+
 Example:
 
 ```python
