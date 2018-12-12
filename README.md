@@ -3,10 +3,15 @@
 
 Open Summarization Toolbox (OST) is an open evaluation framework for video summarization. OST is compatible with existing datasets and published results.
 
-`ost-python` is available in the Python Package Index and can be installed using `pip`. __Python 3__ is required to run `ost-python`:
+## Installation
+`ost-python` is available in the Python Package Index and can be installed using `pip`. __Python 3__ is required.
+
+We highly encourage you to set up a virtual environment before install the dependencies. [Here](https://virtualenvwrapper.readthedocs.io/en/latest/install.html) you
+can find instructions about how to install and use Virtualenvwrapper.
 
 ```
-pip3 install ost-python
+$ mkvirtualenv ost
+$ (ost) pip3 install ost-python
 ```
 
 ## How to use it
