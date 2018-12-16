@@ -80,6 +80,8 @@ print('Kappa:', kappa)
 
 ## Supported platforms
 
+* Ubuntu 18.04 LTS
+* Fedora 29
 
 ## Contributors
 
