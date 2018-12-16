@@ -3,6 +3,14 @@
 
 Open Summarization Toolbox (OST) is an open evaluation framework for video summarization. OST is compatible with existing datasets and published results.
 
+# How OSM works
+OSM compares the keyframes of a summarization method with the keyframes selected by human users to quantify the quality of the abstraction. The frames are compared extracting a HSV color space histogram. If the correlation between two histograms is higher than a given threshold, the frames are considered equivalent. Five metrics are calculated:
+
+* Cohen's Kappa.
+* F-measure coefficient.
+* Precision and Recall.
+* CUSa and CUSe (as a compatibility feature).
+
 ## Installation
 `ost-python` is available in the Python Package Index and can be installed using `pip`. __Python 3__ is required.
 
@@ -80,6 +88,8 @@ print('Kappa:', kappa)
 
 ## Supported platforms
 
+We have tested `ost-python` on the following platforms:
+
 * Ubuntu 18.04 LTS
 * Fedora 29
 
@@ -90,7 +100,6 @@ print('Kappa:', kappa)
 * Diaz, Ariel [ arielivandiaz@gmail.com ]
 * Iparraguirre, Javier [ j.iparraguirre@computer.org ]
 * Rostagno, Adrian [ arostag@frbb.utn.edu.ar ]
-
 
 ## License
 
