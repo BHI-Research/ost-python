@@ -1,5 +1,5 @@
 h5py==2.8.0
-numpy==1.15.3
+numpy==1.22.0
 object-detection==0.1
 opencv-python==3.4.3.18
 six==1.11.0
